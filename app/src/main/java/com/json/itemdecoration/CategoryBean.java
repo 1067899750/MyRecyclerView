@@ -3,7 +3,6 @@ package com.json.itemdecoration;
 import java.io.Serializable;
 
 /**
- *
  * Description  实体类
  * Author puyantao
  * Email 1067899750@qq.com
@@ -11,7 +10,7 @@ import java.io.Serializable;
  */
 
 
-public class CategoryBean implements Serializable{
+public class CategoryBean implements Serializable {
     private static final long serialVersionUID = 5136218664701666396L;
 
     private String tag;//所属的分类

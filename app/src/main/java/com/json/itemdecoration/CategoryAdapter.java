@@ -11,7 +11,6 @@ import android.widget.Toast;
 import java.util.List;
 
 /**
- *
  * Description 适配器
  * Author puyantao
  * Email 1067899750@qq.com
@@ -19,7 +18,7 @@ import java.util.List;
  */
 
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>{
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     private Context context;
     private List<CategoryBean> lists;
@@ -45,17 +44,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "点击了的位置position= "+ position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "点击了的位置position= " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return null !=lists ?lists.size() : 0;
+        return null != lists ? lists.size() : 0;
     }
 
-    public static class CategoryViewHolder extends RecyclerView.ViewHolder{
+    public static class CategoryViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvName;
 
