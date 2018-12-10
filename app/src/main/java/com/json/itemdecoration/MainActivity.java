@@ -1,55 +1,46 @@
 package com.json.itemdecoration;
 
-import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TitleItemDecoration titleItemDecoration;
-    private RecyclerView recyclerView;
-    private CategoryAdapter adapter;
-    private List<CategoryBean> lists;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //设置测试数据
-        setDatas();
-
-        adapter = new CategoryAdapter(this, lists);
-        recyclerView.setAdapter(adapter);
-        titleItemDecoration = new TitleItemDecoration(this, lists);
-        recyclerView.addItemDecoration(titleItemDecoration);
-
+        initView();
     }
 
-    private void setDatas() {
-        lists = new ArrayList<>();
-        lists.add(new CategoryBean("A", "哎"));
-        lists.add(new CategoryBean("A", "爱"));
-        lists.add(new CategoryBean("A", "昂"));
-        lists.add(new CategoryBean("B", "beautiful"));
-        lists.add(new CategoryBean("B", "beak"));
-        lists.add(new CategoryBean("B", "but"));
-        lists.add(new CategoryBean("B", "bring"));
-        lists.add(new CategoryBean("C", "category"));
-        lists.add(new CategoryBean("C", "can"));
-        lists.add(new CategoryBean("C", "captive"));
-        lists.add(new CategoryBean("C", "computer"));
-        lists.add(new CategoryBean("D", "default"));
+    private void initView(){
+        findViewById(R.id.btn_explandle_list_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ExpandableListViewActivity.class));
+            }
+        });
+
+
+        findViewById(R.id.btn_two_recycler).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TwoRecyclerActivity.class));
+            }
+        });
 
 
     }
 
 }
+
+
+
+
+
+
+
+
+
+
