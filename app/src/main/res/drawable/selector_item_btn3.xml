@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 默认时的背景 -->
+    <item android:drawable="@drawable/shape_item_detail_nor" />
+
+    <!--&lt;!&ndash; 选择时的背景 &ndash;&gt;-->
+    <item android:drawable="@drawable/shape_item_detail_select"
+        android:state_selected="true"/>
+    <item android:drawable="@drawable/shape_item_detail_select"
+        android:state_focused="true"/>
+    <item android:drawable="@drawable/shape_item_detail_select"
+        android:state_pressed="true"/>
+    <item android:drawable="@drawable/shape_item_detail_select"
+        android:state_checked="true"/>
+</selector>

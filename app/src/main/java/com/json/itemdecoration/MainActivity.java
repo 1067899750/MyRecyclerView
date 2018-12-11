@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.json.itemdecoration.expandableview.ExpandableListViewActivity;
 import com.json.itemdecoration.relateview.TwoRecyclerActivity;
+import com.json.itemdecoration.tworecycler.TwoRecyActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        startActivity(new Intent(MainActivity.this, TwoRecyclerActivity.class));
+        startActivity(new Intent(MainActivity.this, TwoRecyActivity.class));
         initView();
     }
 
@@ -33,6 +34,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TwoRecyclerActivity.class));
             }
         });
+
+
+        findViewById(R.id.btn_two_recycler2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TwoRecyActivity
+                        .class));
+            }
+        });
+
 
 
     }

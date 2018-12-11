@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/top_layout"
     android:layout_width="match_parent"
-    android:layout_height="42dp"
+    android:layout_height="@dimen/d42"
     android:background="@color/white_back"
     android:baselineAligned="false"
     android:gravity="center_vertical"
@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="80dp"
+            android:layout_width="@dimen/d80"
             android:layout_height="match_parent"
             android:clickable="true"
             android:gravity="center_vertical|left"
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dp_3"
+                android:layout_marginLeft="@dimen/d3"
                 android:background="@mipmap/arrow_back"
                 android:contentDescription="@null"
                 android:visibility="gone"/>
@@ -49,11 +49,11 @@
                 android:lines="1"
                 android:text="标题"
                 android:textColor="@color/me_black"
-                android:textSize="17sp"/>
+                android:textSize="@dimen/f17"/>
         </LinearLayout>
 
         <RelativeLayout
-            android:layout_width="80dp"
+            android:layout_width="@dimen/d80"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -62,13 +62,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginRight="@dimen/d10"
                 android:clickable="true"
                 android:drawableRight="@mipmap/iv_close"
                 android:gravity="center"
                 android:onClick="onRightText"
                 android:textColor="@color/me_black"
-                android:textSize="14sp"
+                android:textSize="@dimen/f14"
                 android:visibility="gone"/>
         </RelativeLayout>
 

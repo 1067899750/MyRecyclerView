@@ -17,11 +17,11 @@
         android:id="@+id/tvCity"
         android:layout_width="61dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginTop="@dimen/d6"
         android:gravity="center"
         android:maxLines="1"
         android:text="分类名称"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/sp_12" />
+        android:textSize="@dimen/s12" />
 </LinearLayout>
 

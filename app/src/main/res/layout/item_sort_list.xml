@@ -11,10 +11,10 @@
         android:id="@+id/tv_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginTop="@dimen/d6"
         android:gravity="center"
-        android:paddingLeft="@dimen/dp_3"
-        android:paddingRight="@dimen/dp_3"
+        android:paddingLeft="@dimen/d3"
+        android:paddingRight="@dimen/d3"
         android:text=""
         android:textColor="@color/black"
         android:textSize="14sp" />
