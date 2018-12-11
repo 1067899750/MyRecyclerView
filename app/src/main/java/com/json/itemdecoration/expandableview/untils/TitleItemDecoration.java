@@ -1,4 +1,4 @@
-package com.json.itemdecoration;
+package com.json.itemdecoration.expandableview.untils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.json.itemdecoration.expandableview.untils.CategoryBean;
 
 import java.util.List;
 

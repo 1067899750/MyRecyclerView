@@ -1,9 +1,14 @@
-package com.json.itemdecoration;
+package com.json.itemdecoration.expandableview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.json.itemdecoration.R;
+import com.json.itemdecoration.expandableview.adapter.CategoryAdapter;
+import com.json.itemdecoration.expandableview.untils.CategoryBean;
+import com.json.itemdecoration.expandableview.untils.TitleItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;

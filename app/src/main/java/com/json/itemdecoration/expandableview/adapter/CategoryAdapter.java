@@ -1,4 +1,4 @@
-package com.json.itemdecoration;
+package com.json.itemdecoration.expandableview.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.json.itemdecoration.R;
+import com.json.itemdecoration.expandableview.untils.CategoryBean;
 
 import java.util.List;
 
