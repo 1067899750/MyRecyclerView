@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="@dimen/d120"
         android:layout_height="wrap_content"
-        android:background="@drawable/bag"
+        android:background="@drawable/ldetail_lme_shade_bag"
+        android:elevation="@dimen/d5"
         android:orientation="vertical">
 
         <TextView
@@ -27,7 +28,9 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/left_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:overScrollMode="never"/>
 
     </LinearLayout>
 
@@ -136,15 +139,15 @@
                     android:text="昨收"
                     android:textColor="#6A798E"
                     android:textSize="@dimen/f13" />
-
-
             </LinearLayout>
 
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/right_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:overScrollMode="never"/>
 
         </LinearLayout>
 
