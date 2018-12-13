@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import com.json.itemdecoration.R;
 
@@ -17,6 +18,7 @@ public class TwoRecyActivity extends AppCompatActivity {
     private Context mContext;
     private RecyclerView mLeftRecycler;
     private RecyclerView mRightRecycler;
+    private LinearLayout llMain;
     private ArrayList<String> mContractArrayList;
     private ArrayList<Items> mItemsArrayList;
 
@@ -85,6 +87,9 @@ public class TwoRecyActivity extends AppCompatActivity {
                 }
             }
         });
+
+//        llMain = findViewById(R.id.llMain);
+//        llMain.setBackgroundDrawable(new MyDrawLogo(mContext, -30));
 
     }
 
