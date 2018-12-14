@@ -1,4 +1,4 @@
-package com.json.itemdecoration.tworecycler;
+package com.json.itemdecoration.water;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -34,17 +34,19 @@ public class MyDrawLogo extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        mTextStr = "天下金属";
+        mTextStr = "涛哥哈哈。。。";
 
         int width = (int) (getBounds().right * 1.1f);
         int height = (int) (getBounds().bottom * 1.5f);
 
         canvas.drawColor(Color.parseColor("#00000000"));
-        mPaint.setColor(Color.parseColor("#50AEAEAE"));
+        mPaint.setColor(Color.parseColor("#10AEAEAE"));
 
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
-        mPaint.setTextSize(sp2px(mContext, 50));
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setStrokeWidth(30);
+        mPaint.setTextSize(sp2px(40));
         canvas.save();
         canvas.rotate(mDegress);
         float textWidth = mPaint.measureText(mTextStr);
@@ -74,9 +76,14 @@ public class MyDrawLogo extends Drawable {
     }
 
 
-    public static int sp2px(Context context, float spValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+    public int sp2px(float spValue) {
+        final float fontScale = mContext.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
+    }
+
+    protected int dp2px(float dp) {
+        final float scale = mContext.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
     }
 
 }

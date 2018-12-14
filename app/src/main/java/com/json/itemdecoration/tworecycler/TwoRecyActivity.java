@@ -88,9 +88,6 @@ public class TwoRecyActivity extends AppCompatActivity {
             }
         });
 
-//        llMain = findViewById(R.id.llMain);
-//        llMain.setBackgroundDrawable(new MyDrawLogo(mContext, -30));
-
     }
 
     private void initDatas() {

@@ -23,7 +23,11 @@
 
         <!-- 双向联动列表 -->
         <activity android:name=".relateview.TwoRecyclerActivity" />
-        <activity android:name=".tworecycler.TwoRecyActivity"></activity>
+
+        <activity android:name=".tworecycler.TwoRecyActivity" />
+
+        <!--水印-->
+        <activity android:name=".water.WaterMarkActivity"/>
     </application>
 
 </manifest>

@@ -31,6 +31,11 @@
             android:layout_height="wrap_content"
             android:text="双向联动列表2" />
 
+        <Button
+            android:id="@+id/water_mark_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="水印效果" />
 
     </LinearLayout>
 
