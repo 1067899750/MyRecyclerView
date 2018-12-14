@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.json.itemdecoration.R;
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
 public class WaterMarkActivity extends AppCompatActivity {
 
     @BindView(R.id.rlLogo)
-    RelativeLayout rlLogo;
+    View rlLogo;
 
     private Context mContext;
 
