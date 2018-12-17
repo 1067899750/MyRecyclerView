@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 public class WaterMarkActivity extends AppCompatActivity {
 
     @BindView(R.id.rlLogo)
-    View rlLogo;
+    MyDrawView rlLogo;
 
     private Context mContext;
 
@@ -35,7 +35,7 @@ public class WaterMarkActivity extends AppCompatActivity {
 
         mContext = WaterMarkActivity.this;
 
-        rlLogo.setBackgroundDrawable(new MyDrawLogo(mContext, -30));
+//        rlLogo.setBackgroundDrawable(new MyDrawLogo(mContext, -30));
 
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_alphametal_watermark);

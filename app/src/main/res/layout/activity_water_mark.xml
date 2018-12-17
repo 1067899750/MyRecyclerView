@@ -9,9 +9,17 @@
     tools:context=".water.WaterMarkActivity">
 
 
-    <View
+    <com.json.itemdecoration.water.MyDrawView
         android:id="@+id/rlLogo"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </View>
+    </com.json.itemdecoration.water.MyDrawView>
 </RelativeLayout>
+
+
+
+
+
+
+
+
