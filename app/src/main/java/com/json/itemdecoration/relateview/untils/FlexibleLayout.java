@@ -160,7 +160,10 @@ public abstract class FlexibleLayout extends LinearLayout {
     }
 
     public enum State {
-        Normal, Empty, Loading, NetWorkError
+        Normal,
+        Empty,
+        Loading,
+        NetWorkError
     }
 
 }
