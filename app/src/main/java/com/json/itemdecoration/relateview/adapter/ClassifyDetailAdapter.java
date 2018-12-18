@@ -43,11 +43,11 @@ public class ClassifyDetailAdapter extends RvAdapter<RightBean> {
             super(itemView, type, listener);
             switch (type) {
                 case 0:
-                    tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
+                    tvTitle = itemView.findViewById(R.id.tv_title);
                     break;
                 case 1:
-                    tvCity = (TextView) itemView.findViewById(R.id.tvCity);
-                    avatar = (ImageView) itemView.findViewById(R.id.ivAvatar);
+                    tvCity = itemView.findViewById(R.id.tvCity);
+                    avatar = itemView.findViewById(R.id.ivAvatar);
                     break;
             }
 
