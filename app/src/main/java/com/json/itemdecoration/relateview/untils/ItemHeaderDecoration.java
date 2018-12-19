@@ -35,8 +35,10 @@ public class ItemHeaderDecoration extends RecyclerView.ItemDecoration {
     public ItemHeaderDecoration(Context context, List<RightBean> datas) {
         this.mDatas = datas;
         Paint paint = new Paint();
-        mTitleHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, context.getResources().getDisplayMetrics());
-        int titleFontSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, context.getResources().getDisplayMetrics());
+        mTitleHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                30, context.getResources().getDisplayMetrics());
+        int titleFontSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
+                16, context.getResources().getDisplayMetrics());
         paint.setTextSize(titleFontSize);
         paint.setAntiAlias(true);
         mInflater = LayoutInflater.from(context);
