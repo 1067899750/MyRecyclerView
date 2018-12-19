@@ -9,33 +9,45 @@
     android:orientation="horizontal"
     tools:context=".tworecycler.TwoRecyActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="@dimen/d120"
         android:layout_height="wrap_content"
-        android:background="@drawable/ldetail_lme_shade_bag"
-        android:elevation="@dimen/d5"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d28"
-            android:background="#2A2D4F"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/d8"
-            android:text="合约"
-            android:textColor="#6A798E"
-            android:textSize="@dimen/f13" />
+        app:cardBackgroundColor="@color/c2A2D4F"
+        app:contentPaddingRight="0dp"
+        app:cardElevation="0dp">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/left_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:overScrollMode="never"/>
+        <LinearLayout
+            android:layout_width="@dimen/d120"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d28"
+                android:background="#2A2D4F"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/d8"
+                android:text="合约"
+                android:textColor="#6A798E"
+                android:textSize="@dimen/f13" />
 
-    <HorizontalScrollView
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/left_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:overScrollMode="never"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <com.json.itemdecoration.tworecycler.SwapScrollView
+        android:id="@+id/rightScrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="none">
@@ -153,7 +165,7 @@
         </LinearLayout>
 
 
-    </HorizontalScrollView>
+    </com.json.itemdecoration.tworecycler.SwapScrollView>
 
 
 </LinearLayout>

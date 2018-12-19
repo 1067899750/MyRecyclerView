@@ -1,24 +1,56 @@
 package com.json.itemdecoration.tworecycler;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.json.itemdecoration.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class TwoRecyActivity extends AppCompatActivity {
+    @BindView(R.id.left_recycler)
+    RecyclerView leftRecycler;
+    @BindView(R.id.cardView)
+    CardView cardView;
+    @BindView(R.id.tvNewPrice)
+    TextView tvNewPrice;
+    @BindView(R.id.tvUpDown)
+    TextView tvUpDown;
+    @BindView(R.id.tvBuy)
+    TextView tvBuy;
+    @BindView(R.id.tvBuyNums)
+    TextView tvBuyNums;
+    @BindView(R.id.tvBuyDate)
+    TextView tvBuyDate;
+    @BindView(R.id.tvSell)
+    TextView tvSell;
+    @BindView(R.id.tvSellNums)
+    TextView tvSellNums;
+    @BindView(R.id.tvSellDate)
+    TextView tvSellDate;
+    @BindView(R.id.tvYTDPut)
+    TextView tvYTDPut;
+    @BindView(R.id.right_recycler)
+    RecyclerView rightRecycler;
+    @BindView(R.id.rightScrollView)
+    SwapScrollView rightScrollView;
+    @BindView(R.id.llMain)
+    LinearLayout llMain;
+
     private Context mContext;
     private RecyclerView mLeftRecycler;
     private RecyclerView mRightRecycler;
-    private LinearLayout llMain;
     private ArrayList<String> mContractArrayList;
     private ArrayList<Items> mItemsArrayList;
 
@@ -29,6 +61,7 @@ public class TwoRecyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_recy);
+        ButterKnife.bind(this);
 
         mContext = TwoRecyActivity.this;
 
@@ -87,6 +120,20 @@ public class TwoRecyActivity extends AppCompatActivity {
                 }
             }
         });
+
+        rightScrollView.setScrollViewListener(new SwapScrollView.ScrollViewListener() {
+            @Override
+            public void onScrollChanged(SwapScrollView scrollView, int x, int y, int oldx, int oldy) {
+                if (x != 0) {
+                    cardView.setContentPadding(0, 0, 5, 0);
+                    cardView.setCardElevation(8);
+                } else {
+                    cardView.setContentPadding(0, 0, 0, 0);
+                    cardView.setCardElevation(0);
+                }
+            }
+        });
+
 
     }
 
