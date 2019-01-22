@@ -10,7 +10,7 @@
 * 样式二 ：
 
 <div class='row'>
-        <img src='https://github.com/1067899750/MyRecyclerView/blob/master/image/image1.jpg' width="300px"/>
+        <img src='https://github.com/1067899750/MyRecyclerView/blob/master/image/recyclerView1.gif' width="300px"/>
 </div>
 
 
