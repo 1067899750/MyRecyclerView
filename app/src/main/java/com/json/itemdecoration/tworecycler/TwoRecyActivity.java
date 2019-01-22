@@ -144,15 +144,15 @@ public class TwoRecyActivity extends AppCompatActivity {
 
         for (int i = 0; i < 25; i++) {
             Items items = new Items();
-            items.setNewPrices("111--" + i);
-            items.setUpDowms("+11--" + i);
-            items.setBuy("10--" + i);
-            items.setBuyNums("12-" + i);
-            items.setBuyDates("14--" + i);
-            items.setSell("21--" + i);
-            items.setSellNums("22--" + i);
-            items.setSellDates("23--" + i);
-            items.setYTDPut("23222--" + i);
+            items.setNewPrices(111 + i + "");
+            items.setUpDowms("+" + 11 + i);
+            items.setBuy(10 + i + "");
+            items.setBuyNums(12 + i + "");
+            items.setBuyDates("14:" + i);
+            items.setSell(21 + i + "");
+            items.setSellNums(22 + i + "");
+            items.setSellDates("23:" + i);
+            items.setYTDPut(23222 - i + "");
             mItemsArrayList.add(items);
         }
 
