@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.json.itemdecoration.expandableview.ExpandableListViewActivity;
+import com.json.itemdecoration.piceure.ChoosePhotoActivity;
 import com.json.itemdecoration.relateview.TwoRecyclerActivity;
+import com.json.itemdecoration.slidedelete.SlideRecyclerViewActivity;
 import com.json.itemdecoration.tworecycler.TwoRecyActivity;
 import com.json.itemdecoration.water.WaterMarkActivity;
+import com.json.itemdecoration.wave.WaveProgressActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnTwoRecycler2;
     @BindView(R.id.water_mark_btn)
     Button waterMarkBtn;
+    @BindView(R.id.recycler_view_deletel)
+    Button recyclerViewDeletel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.btn_explandle_list_view,
             R.id.btn_two_recycler,
             R.id.btn_two_recycler2,
-            R.id.water_mark_btn})
+            R.id.water_mark_btn,
+            R.id.recycler_view_deletel,
+            R.id.wave_pregress_btn,
+            R.id.picture_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_explandle_list_view:
@@ -57,8 +65,23 @@ public class MainActivity extends AppCompatActivity {
             case R.id.water_mark_btn:
                 startActivity(new Intent(MainActivity.this, WaterMarkActivity.class));
                 break;
+
+
+            case R.id.recycler_view_deletel:
+                startActivity(new Intent(MainActivity.this, SlideRecyclerViewActivity.class));
+                break;
+
+            case R.id.wave_pregress_btn:
+                startActivity(new Intent(MainActivity.this, WaveProgressActivity.class));
+                break;
+
+            case R.id.picture_btn:
+                startActivity(new Intent(MainActivity.this, ChoosePhotoActivity.class));
+                break;
         }
     }
+
+
 }
 
 

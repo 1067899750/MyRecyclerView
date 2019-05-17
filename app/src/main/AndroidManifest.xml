@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.json.itemdecoration">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -28,6 +29,15 @@
 
         <!--水印-->
         <activity android:name=".water.WaterMarkActivity"/>
+
+        <!--侧滑删除-->
+        <activity android:name=".slidedelete.SlideRecyclerViewActivity"/>
+
+        <!--测试波纹进度条-->
+        <activity android:name=".wave.WaveProgressActivity"/>
+
+        <!--相册-->
+        <activity android:name=".piceure.ChoosePhotoActivity" />
     </application>
 
 </manifest>

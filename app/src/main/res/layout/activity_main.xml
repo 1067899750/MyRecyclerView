@@ -37,6 +37,30 @@
             android:layout_height="wrap_content"
             android:text="水印效果" />
 
+
+        <Button
+            android:id="@+id/recycler_view_deletel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="RecyclerView 侧滑删除" />
+
+
+        <Button
+            android:id="@+id/wave_pregress_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试波纹进度条" />
+
+
+        <Button
+            android:id="@+id/picture_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="相册" />
+
     </LinearLayout>
 
 

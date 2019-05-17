@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RecyclerView</string>
+    <string name="delete">删除</string>
+    <string name="modification">修改</string>
 </resources>
