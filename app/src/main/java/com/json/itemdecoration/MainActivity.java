@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.json.itemdecoration.expandableview.ExpandableListViewActivity;
 import com.json.itemdecoration.piceure.ChoosePhotoActivity;
+import com.json.itemdecoration.qq.QQDeleteActivity;
 import com.json.itemdecoration.relateview.TwoRecyclerActivity;
 import com.json.itemdecoration.slidedelete.SlideRecyclerViewActivity;
 import com.json.itemdecoration.tworecycler.TwoRecyActivity;
@@ -47,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.water_mark_btn,
             R.id.recycler_view_deletel,
             R.id.wave_pregress_btn,
-            R.id.picture_btn})
+            R.id.picture_btn,
+            R.id.qq_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_explandle_list_view:
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.picture_btn:
                 startActivity(new Intent(MainActivity.this, ChoosePhotoActivity.class));
+                break;
+
+            case R.id.qq_btn:
+                startActivity(new Intent(MainActivity.this, QQDeleteActivity.class));
                 break;
         }
     }

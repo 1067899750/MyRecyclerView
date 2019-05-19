@@ -11,32 +11,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".qq.QQDeleteActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 可折叠列表 -->
-        <activity android:name=".expandableview.ExpandableListViewActivity" />
-
-        <!-- 双向联动列表 -->
+        </activity> <!-- 可折叠列表 -->
+        <activity android:name=".expandableview.ExpandableListViewActivity" /> <!-- 双向联动列表 -->
         <activity android:name=".relateview.TwoRecyclerActivity" />
-
-        <activity android:name=".tworecycler.TwoRecyActivity" />
-
-        <!--水印-->
-        <activity android:name=".water.WaterMarkActivity"/>
-
-        <!--侧滑删除-->
-        <activity android:name=".slidedelete.SlideRecyclerViewActivity"/>
-
-        <!--测试波纹进度条-->
-        <activity android:name=".wave.WaveProgressActivity"/>
-
-        <!--相册-->
+        <activity android:name=".tworecycler.TwoRecyActivity" /> <!-- 水印 -->
+        <activity android:name=".water.WaterMarkActivity" /> <!-- 侧滑删除 -->
+        <activity android:name=".slidedelete.SlideRecyclerViewActivity" /> <!-- 测试波纹进度条 -->
+        <activity android:name=".wave.WaveProgressActivity" /> <!-- 相册 -->
         <activity android:name=".piceure.ChoosePhotoActivity" />
     </application>
 

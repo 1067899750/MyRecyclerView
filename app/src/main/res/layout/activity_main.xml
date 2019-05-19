@@ -61,6 +61,14 @@
             android:textAllCaps="false"
             android:text="相册" />
 
+
+        <Button
+            android:id="@+id/qq_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="模仿QQ滑动删除" />
+
     </LinearLayout>
 
 

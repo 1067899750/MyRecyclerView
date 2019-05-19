@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.json.itemdecoration.qq.until.RecyclerItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d50"
+    android:background="@android:color/white"
+    android:layout_marginBottom="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/slide"
+            android:layout_toRightOf="@+id/layout_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_height="match_parent"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:background="#FF9800"
+                android:text="删除"/>
+
+            <TextView
+                android:id="@+id/update"
+                android:layout_height="match_parent"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:background="#BB1B21"
+                android:text="修改" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/content_white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="16dp"
+                    android:paddingBottom="2dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:gravity="left"
+                        android:textColor="#000000"
+                        android:text="2019-05-10" />
+
+
+                    <TextView
+                        android:id="@+id/inpute"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:text="工资" />
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp"
+                        android:gravity="right"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:text="11:44"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#747373"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    android:text="详情:aaa" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</com.json.itemdecoration.qq.until.RecyclerItemView>
