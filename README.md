@@ -24,3 +24,10 @@
 <div class='row'>
         <img src='https://github.com/1067899750/MyRecyclerView/blob/master/image/image2.jpg' width="300px"/>
 </div>
+
+
+* 侧滑删除 ：
+
+<div class='row'>
+        <img src='https://github.com/1067899750/MyRecyclerView/blob/master/image/delete.png' width="300px"/>
+</div>
