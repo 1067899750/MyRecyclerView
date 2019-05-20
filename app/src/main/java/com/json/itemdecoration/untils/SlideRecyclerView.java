@@ -26,7 +26,7 @@ public class SlideRecyclerView extends RecyclerView {
     private static final String TAG = "SlideRecyclerView";
     private static final int INVALID_POSITION = -1; // 触摸到的点不在子View范围内
     private static final int INVALID_CHILD_WIDTH = -1;  // 子ItemView不含两个子View
-    private static final int SNAP_VELOCITY = 600;   // 最小滑动速度
+    private static final int SNAP_VELOCITY = 1000;   // 最小滑动速度
 
     private VelocityTracker mVelocityTracker;   // 速度追踪器
     private int mTouchSlop; // 认为是滑动的最小距离（一般由系统提供）
@@ -85,7 +85,7 @@ public class SlideRecyclerView extends RecyclerView {
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
-                mVelocityTracker.computeCurrentVelocity((int) Float.MAX_VALUE);
+                mVelocityTracker.computeCurrentVelocity(SNAP_VELOCITY);
                 // 此处有俩判断，满足其一则认为是侧滑：
                 // 1.如果x方向速度大于y方向速度，且大于最小速度限制；
                 // 2.如果x方向的侧滑距离大于y方向滑动距离，且x方向达到最小滑动距离；
@@ -127,7 +127,7 @@ public class SlideRecyclerView extends RecyclerView {
                 case MotionEvent.ACTION_UP:
                     if (mMenuViewWidth != INVALID_CHILD_WIDTH) {
                         int scrollX = mFlingView.getScrollX();
-                        mVelocityTracker.computeCurrentVelocity((int) Float.MAX_VALUE);
+                        mVelocityTracker.computeCurrentVelocity(SNAP_VELOCITY);
                         // 此处有两个原因决定是否打开菜单：
                         // 1.菜单被拉出宽度大于菜单宽度一半；
                         // 2.横向滑动速度大于最小滑动速度；
