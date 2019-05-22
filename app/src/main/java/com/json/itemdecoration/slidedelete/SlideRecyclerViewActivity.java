@@ -6,7 +6,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.json.itemdecoration.R;
@@ -60,12 +62,12 @@ public class SlideRecyclerViewActivity extends AppCompatActivity {
 
             @Override
             public void onDeleteClick(View view, int position) {
-
+                Toast.makeText(SlideRecyclerViewActivity.this, "删除成功", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onUpdateClick(View view, int position) {
-
+                Toast.makeText(SlideRecyclerViewActivity.this, "修改成功", Toast.LENGTH_LONG).show();
             }
         });
 

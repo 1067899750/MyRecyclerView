@@ -2,6 +2,7 @@ package com.json.itemdecoration.slidedelete;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -58,17 +59,17 @@ public class InventoryAdapter extends BaseRecyclerViewAdapter<SlideModel.DataBea
             });
         }
 
-        final RelativeLayout rl = ((RelativeLayout) holder.getView(R.id.rl));
+        final RelativeLayout leftRl = ((RelativeLayout) holder.getView(R.id.layout_left));
         final TextView content = (TextView) holder.getView(R.id.content);
         final String datas = bean.getRemark();
-        rl.setTag(position);
-        if (!rl.hasOnClickListeners()) {
-            rl.setOnClickListener(new View.OnClickListener() {
+        leftRl.setTag(position);
+        if (!leftRl.hasOnClickListeners()) {
+            leftRl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (null == datas || "".equals(datas.trim())) {
                         content.setVisibility(View.GONE);
-                    }else {
+                    } else {
                         content.setText("备注: " + datas);
                         if (content.getVisibility() == View.VISIBLE) {
                             content.setVisibility(View.GONE);
