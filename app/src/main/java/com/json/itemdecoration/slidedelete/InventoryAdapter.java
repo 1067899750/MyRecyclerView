@@ -95,8 +95,10 @@ public class InventoryAdapter extends BaseRecyclerViewAdapter<SlideModel.DataBea
     }
 
 
-
-
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
 
     public void setOnItemClickListener(OneClickLister listener) {
         if (listener != null) {
