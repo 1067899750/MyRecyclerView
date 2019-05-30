@@ -66,10 +66,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     //获得布局下标（点的哪一个）
                     int subscript = holder.getLayoutPosition();
                     onSvcl.onItemClick(view, subscript);
-
-
-                    holder.content.setVisibility(View.VISIBLE);
-                    notifyItemRemoved(subscript);
                 }
             }
         });
