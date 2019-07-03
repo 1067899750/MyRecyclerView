@@ -6,26 +6,92 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".qq.QQDeleteActivity"></activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 可折叠列表 -->
-        <activity android:name=".expandableview.ExpandableListViewActivity" /> <!-- 双向联动列表 -->
-        <activity android:name=".relateview.TwoRecyclerActivity" />
-        <activity android:name=".tworecycler.TwoRecyActivity" /> <!-- 水印 -->
-        <activity android:name=".water.WaterMarkActivity" /> <!-- 侧滑删除 -->
-        <activity android:name=".slidedelete.SlideRecyclerViewActivity" /> <!-- 测试波纹进度条 -->
-        <activity android:name=".wave.WaveProgressActivity" /> <!-- 相册 -->
-        <activity android:name=".piceure.ChoosePhotoActivity" />
+        </activity>
+
+        <!-- 可折叠列表 -->
+        <activity android:name=".expandableview.ExpandableListViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- 双向联动列表 -->
+        <activity android:name=".relateview.TwoRecyclerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- 水印 -->
+        <activity android:name=".tworecycler.TwoRecyActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- 侧滑删除 -->
+        <activity android:name=".water.WaterMarkActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- 测试波纹进度条 -->
+        <activity android:name=".slidedelete.SlideRecyclerViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- 相册 -->
+        <activity android:name=".wave.WaveProgressActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!--选择照片-->
+        <activity android:name=".piceure.ChoosePhotoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!--无限轮廓图-->
+        <activity android:name=".looper.LooperActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!--模仿QQ滑动删除-->
+        <activity android:name=".qq.QQDeleteActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

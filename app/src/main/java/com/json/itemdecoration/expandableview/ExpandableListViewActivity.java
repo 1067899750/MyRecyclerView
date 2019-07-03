@@ -13,6 +13,13 @@ import com.json.itemdecoration.expandableview.untils.TitleItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * Description 可折叠列表
+ * Author puyantao
+ * Email 1067899750@qq.com
+ * Date 2019/7/3 9:14
+ */
 public class ExpandableListViewActivity extends AppCompatActivity {
 
     private TitleItemDecoration titleItemDecoration;

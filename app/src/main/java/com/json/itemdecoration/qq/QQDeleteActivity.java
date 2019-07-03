@@ -15,7 +15,7 @@ import com.json.itemdecoration.qq.until.Item;
 import java.util.ArrayList;
 /**
  * 
- * Description
+ * Description 模仿QQ滑动删除
  * Author puyantao
  * Email 1067899750@qq.com
  * Date 2019/5/19 14:15

@@ -24,7 +24,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *
+ * Description 双向联动列表
+ * Author puyantao
+ * Email 1067899750@qq.com
+ * Date 2019/7/3 9:14
+ */
 public class TwoRecyclerActivity extends AppCompatActivity implements CheckListener {
     private RecyclerView rvSort;
     private SortAdapter mSortAdapter;

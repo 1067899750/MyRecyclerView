@@ -17,7 +17,13 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+ *
+ * Description 双向联动列表
+ * Author puyantao
+ * Email 1067899750@qq.com
+ * Date 2019/7/3 9:15
+ */
 public class TwoRecyActivity extends AppCompatActivity {
     @BindView(R.id.left_recycler)
     RecyclerView leftRecycler;

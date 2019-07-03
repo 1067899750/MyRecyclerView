@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.json.itemdecoration.expandableview.ExpandableListViewActivity;
+import com.json.itemdecoration.looper.LooperActivity;
 import com.json.itemdecoration.piceure.ChoosePhotoActivity;
 import com.json.itemdecoration.qq.QQDeleteActivity;
 import com.json.itemdecoration.relateview.TwoRecyclerActivity;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.recycler_view_deletel,
             R.id.wave_pregress_btn,
             R.id.picture_btn,
-            R.id.qq_btn})
+            R.id.qq_btn,
+            R.id.looper_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_explandle_list_view:
@@ -84,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.qq_btn:
                 startActivity(new Intent(MainActivity.this, QQDeleteActivity.class));
                 break;
+
+            case R.id.looper_btn:
+                LooperActivity.startLooperActivity(MainActivity.this);
+                break;
+
+
         }
     }
 
