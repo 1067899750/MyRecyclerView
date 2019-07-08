@@ -27,4 +27,29 @@
         <attr name="hint_size" format="dimension" />
         <attr name="text_space" format="dimension" />
     </declare-styleable>
+
+
+
+    <!--试图属性-->
+    <declare-styleable name="MyScrollViewStyle">
+        <attr name="appScrollToRight" format="boolean"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="ScrollerLayout">
+        <attr name="orientation" format="enum">
+            <enum name="vertical" value="0"/>
+            <enum name="horizontal" value="1"/>
+        </attr>
+    </declare-styleable>
+
 </resources>
+
+
+
+
+
+
+
+
+

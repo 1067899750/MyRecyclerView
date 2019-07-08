@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A2D4F"
+    tools:context=".middle.RecyclerMiddleActivity">
+
+    <LinearLayout
+        android:id="@+id/centre_ll"
+        android:layout_width="@dimen/d100"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d28"
+            android:background="#2A2D4F"
+            android:gravity="center"
+            android:paddingLeft="@dimen/d8"
+            android:text="行权价"
+            android:textColor="#6A798E"
+            android:textSize="@dimen/f13" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/centre_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:overScrollMode="never"/>
+
+    </LinearLayout>
+
+    <com.json.itemdecoration.untils.MyNestedScrollview
+        android:id="@+id/left_sv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/centre_ll"
+        android:clipChildren="true"
+        android:scrollbars="none"
+
+        app:appScrollToRight="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d28"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_left_sell_percent"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="卖价%"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+
+                <TextView
+                    android:id="@+id/tv_left_buy_percent"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="买价%"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+                <TextView
+                    android:id="@+id/tv_left_sell"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="卖价"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+                <TextView
+                    android:id="@+id/tv_left_buy"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="买价"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/left_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:overScrollMode="never"/>
+
+        </LinearLayout>
+
+
+    </com.json.itemdecoration.untils.MyNestedScrollview>
+
+
+
+    <com.json.itemdecoration.untils.MyNestedScrollview
+        android:id="@+id/right_sv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/centre_ll"
+        android:clipChildren="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d28"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_right_buy"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="买价"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+                <TextView
+                    android:id="@+id/tv_right_sell"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="卖价"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+                <TextView
+                    android:id="@+id/tv_right_buy_percent"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="买价%"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+                <TextView
+                    android:id="@+id/tv_right_sell_percent"
+                    android:layout_width="@dimen/d80"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d5"
+                    android:gravity="center"
+                    android:text="卖价%"
+                    android:textColor="#6A798E"
+                    android:textSize="@dimen/f13" />
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/right_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+
+                app:appScrollToRight="false"/>
+
+        </LinearLayout>
+
+
+    </com.json.itemdecoration.untils.MyNestedScrollview>
+
+
+
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

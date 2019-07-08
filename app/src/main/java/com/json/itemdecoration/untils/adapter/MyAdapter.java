@@ -1,4 +1,4 @@
-package com.json.itemdecoration.tworecycler;
+package com.json.itemdecoration.untils.adapter;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
