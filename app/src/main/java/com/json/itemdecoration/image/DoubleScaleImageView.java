@@ -1,11 +1,5 @@
 package com.json.itemdecoration.image;
 
-/**
- * @author puyantao
- * @describe 对图片进行放大缩小
- * @create 2019/12/12 10:17
- */
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Matrix;
@@ -19,6 +13,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 
+/**
+ * @author puyantao
+ * @describe 对图片进行放大缩小
+ * @create 2019/12/12 10:17
+ */
 
 public class DoubleScaleImageView extends AppCompatImageView implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     private boolean isFirst = false;
