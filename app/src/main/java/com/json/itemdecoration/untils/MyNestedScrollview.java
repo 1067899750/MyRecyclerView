@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 
 import com.json.itemdecoration.R;
 
@@ -22,6 +26,7 @@ public class MyNestedScrollview extends HorizontalScrollView {
     private boolean mIsScrollToRight;
     private int mWidth;
     private HorizontalScrollView mView;
+    private float mDownX;
 
 
     public MyNestedScrollview(@NonNull Context context) {
@@ -43,9 +48,10 @@ public class MyNestedScrollview extends HorizontalScrollView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
 
-
-        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(width, height);
     }
 
     @Override
@@ -57,7 +63,21 @@ public class MyNestedScrollview extends HorizontalScrollView {
 
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
-            Log.d("--> view" + i + " : ", view.getMeasuredWidth() + "");
+            if (view instanceof LinearLayout){
+                Log.d("--> view - LinearLayout " + i + " : ", view.getMeasuredWidth() + "");
+                ViewGroup viewGroup = (ViewGroup) view;
+                for (int j = 0; j < viewGroup.getChildCount(); j ++){
+                    View childView = viewGroup.getChildAt(j);
+                    if (childView instanceof LinearLayout){
+                        Log.d("--> childView - LinearLayout " + j + " : ", view.getMeasuredWidth() + "");
+
+                    } else if  (childView instanceof RecyclerView){
+                        Log.d("--> childView - RecyclerView " + j + " : ", view.getMeasuredWidth() + "");
+                    }
+
+                }
+            }
+
         }
 
         mWidth = getChildAt(0).getMeasuredWidth();
@@ -72,6 +92,20 @@ public class MyNestedScrollview extends HorizontalScrollView {
 
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN){
+            mDownX = ev.getX();
+        } else if (ev.getAction() == MotionEvent.ACTION_MOVE){
+            float moveX = ev.getX();
+            Log.d("moveX -->", String.valueOf(moveX));
+
+        } if (ev.getAction() == MotionEvent.ACTION_MOVE){
+
+        }
+        return super.onTouchEvent(ev);
+
+    }
 
     @Override
     protected void onScrollChanged(int x, int y, int oldx, int oldy) {
@@ -79,14 +113,17 @@ public class MyNestedScrollview extends HorizontalScrollView {
         int changeX = x - oldx;
         int width = 0;
 
-        if ((x == 0 && oldx != 0) || (x != 0 && oldx == 0)) {
+        if (x != 0 && oldx == 0) {
+            width = Math.abs(x - oldx);
+            Log.d("--> width :", width + "");
+        } else if (x == 0 && oldx != 0) {
             width = Math.abs(x - oldx);
             Log.d("--> width :", width + "");
         }
 
 
         if (mView != null) {
-//            mView.getChildAt(0).scrollBy(-changeX, y);
+            mView.getChildAt(0).scrollBy(-changeX, y);
 //            mView.scrollTo(x, y);
 
         }

@@ -14,6 +14,7 @@ import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.OverScroller;
 import android.widget.RelativeLayout;
@@ -29,9 +30,7 @@ import java.util.ArrayList;
  * @create 2019/7/4 9:29
  */
 public class ListLoopBanner extends RelativeLayout implements GestureDetector.OnGestureListener {
-    private LinearLayout mRootLL;
-    private RecyclerView mRecyclerView;
-    private LeftMiddleAdapter mLeftMiddleAdapter;
+
     private ArrayList<MiddelsItem> mMiddelsItems;
 
 
@@ -68,18 +67,6 @@ public class ListLoopBanner extends RelativeLayout implements GestureDetector.On
 
     private void initView(Context context) {
 
-        LayoutInflater.from(context).inflate(R.layout.list_looper_view, this);
-
-        mRootLL = (LinearLayout) findViewById(R.id.ll_root);
-        mRecyclerView = findViewById(R.id.left_recycler);
-
-        mLeftMiddleAdapter = new LeftMiddleAdapter(context, mMiddelsItems, R.layout.left_middel_layout);
-        final LinearLayoutManager leftllm = new LinearLayoutManager(context);
-        leftllm.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
-        mRecyclerView.setLayoutManager(leftllm);
-        mRecyclerView.setAdapter(mLeftMiddleAdapter);
-
 
         ViewConfiguration configuration = ViewConfiguration.get(context);
         // 获取TouchSlop值
@@ -89,41 +76,50 @@ public class ListLoopBanner extends RelativeLayout implements GestureDetector.On
     }
 
 
-    /**
-     * 初始化数据
-     *
-     * @param middelsItems
-     */
-    public void initDatas(ArrayList<MiddelsItem> middelsItems) {
-        mMiddelsItems.clear();
-        mMiddelsItems.addAll(middelsItems);
-        mLeftMiddleAdapter.notifyDataSetChanged();
-    }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         viewWidth = MeasureSpec.getSize(widthMeasureSpec);
+        viewWidth = MeasureSpec.getSize(widthMeasureSpec);
 
-        Log.e("---> llRootWidth", mRootLL.getMeasuredWidth() + "");
 
-//        mRootLL.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
 
 
     }
 
     //直接跳转到第一个页面
     private void reSetBanner() {
-        Animator animator = ObjectAnimator.ofFloat(mRootLL, "translationX", translationX, -viewWidth);
-        animator.setDuration(1);
-        animator.setStartDelay(100);
-        animator.start();
-        translationX = -viewWidth;
+//        Animator animator = ObjectAnimator.ofFloat(mRootLL, "translationX", translationX, -viewWidth);
+//        animator.setDuration(1);
+//        animator.setStartDelay(100);
+//        animator.start();
+//        translationX = -viewWidth;
     }
 
     @Override
-    public boolean onInterceptHoverEvent(MotionEvent event) {
-        return super.onInterceptHoverEvent(event);
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mPointDownX = ev.getX();
+                mPointDownY = ev.getY();
+                mPointLastMoveX = ev.getX();
+                mPointLastMoveY = ev.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPointMoveX = ev.getX();
+                mPointMoveY = ev.getY();
+                float moveX = Math.abs(mPointMoveX - mPointLastMoveX);
+                float moveY = Math.abs(mPointMoveY - mPointLastMoveY);
+                mPointLastMoveX = mPointMoveX;
+                mPointLastMoveY = mPointMoveY;
+                if (moveX > moveY) {
+                    return true;
+                }
+                break;
+
+        }
+        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
@@ -172,7 +168,7 @@ public class ListLoopBanner extends RelativeLayout implements GestureDetector.On
                 break;
 
         }
-        return super.onTouchEvent(event);
+        return true;
     }
 
     @Override
@@ -223,7 +219,7 @@ public class ListLoopBanner extends RelativeLayout implements GestureDetector.On
 
     //获取位移的最大值
     public int getMaxScrollX() {
-        return mRootLL.getMeasuredWidth();
+        return 0;
     }
 
     //滑到了最左边

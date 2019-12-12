@@ -1,27 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.json.itemdecoration.middle.ListLoopBanner
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lixt_looper_banner"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/d150"
     android:layout_height="match_parent"
     tools:context=".middle.TextActivity">
 
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/d28"
+        android:orientation="horizontal">
 
-    <com.json.itemdecoration.middle.ListLoopBanner
-        android:id="@+id/lixt_looper_banner"
-        android:layout_width="@dimen/d150"
-        android:layout_height="match_parent">
-    </com.json.itemdecoration.middle.ListLoopBanner>
+        <TextView
+            android:id="@+id/tv_left_sell_percent"
+            android:layout_width="@dimen/d80"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d5"
+            android:gravity="center"
+            android:text="卖价%"
+            android:textColor="#6A798E"
+            android:textSize="@dimen/f13" />
+
+
+        <TextView
+            android:id="@+id/tv_left_buy_percent"
+            android:layout_width="@dimen/d80"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d5"
+            android:gravity="center"
+            android:text="买价%"
+            android:textColor="#6A798E"
+            android:textSize="@dimen/f13" />
+
+        <TextView
+            android:id="@+id/tv_left_sell"
+            android:layout_width="@dimen/d80"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d5"
+            android:gravity="center"
+            android:text="卖价"
+            android:textColor="#6A798E"
+            android:textSize="@dimen/f13" />
+
+        <TextView
+            android:id="@+id/tv_left_buy"
+            android:layout_width="@dimen/d80"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d5"
+            android:gravity="center"
+            android:text="买价"
+            android:textColor="#6A798E"
+            android:textSize="@dimen/f13" />
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/left_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:layout_below="@id/ll1"
+        android:scrollbars="none" />
 
 
 
-
-
-
-
-
-
-</RelativeLayout>
+</com.json.itemdecoration.middle.ListLoopBanner>
 
 
 

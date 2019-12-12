@@ -47,6 +47,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:clipChildren="true"
             android:orientation="vertical">
 
             <LinearLayout
@@ -102,8 +104,9 @@
                 android:id="@+id/left_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:overScrollMode="never"
                 android:scrollbars="none"
-                android:overScrollMode="never"/>
+                android:visibility="visible" />
 
         </LinearLayout>
 
@@ -118,11 +121,15 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/centre_ll"
         android:clipChildren="true"
-        android:scrollbars="none">
+        android:scrollbars="none"
+
+        app:appScrollToRight="false">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:clipChildren="true"
             android:orientation="vertical">
 
             <LinearLayout
@@ -179,8 +186,7 @@
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
                 android:overScrollMode="never"
-
-                app:appScrollToRight="false"/>
+                android:visibility="visible" />
 
         </LinearLayout>
 
