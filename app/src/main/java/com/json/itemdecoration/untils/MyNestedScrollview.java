@@ -27,7 +27,7 @@ public class MyNestedScrollview extends HorizontalScrollView {
     private int mWidth;
     private HorizontalScrollView mView;
     private float mDownX;
-
+    private int scrollWidth;
 
     public MyNestedScrollview(@NonNull Context context) {
         this(context, null);
@@ -51,7 +51,14 @@ public class MyNestedScrollview extends HorizontalScrollView {
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
 
-        setMeasuredDimension(width, height);
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childView = getChildAt(i);
+            measureChild(childView, widthMeasureSpec, heightMeasureSpec);
+            MarginLayoutParams lp = (MarginLayoutParams) childView.getLayoutParams();
+            scrollWidth = childView.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+            Log.d("--> scrollWidth :", scrollWidth + "");
+        }
     }
 
     @Override
@@ -81,13 +88,14 @@ public class MyNestedScrollview extends HorizontalScrollView {
         }
 
         mWidth = getChildAt(0).getMeasuredWidth();
+
         if (mIsScrollToRight) {
-            this.scrollBy(mWidth, 0);
+            getChildAt(0).scrollBy(mWidth, 0);
             Log.d("--> SVWidth :", getMeasuredWidth() + "");
             Log.d("--> mWidth :", mWidth + "");
 
         } else {
-            this.scrollBy(0, 0);
+            getChildAt(0).scrollBy(0, 0);
         }
 
     }
