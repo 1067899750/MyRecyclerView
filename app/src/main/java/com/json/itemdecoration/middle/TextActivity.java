@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.json.itemdecoration.R;
 import com.json.itemdecoration.untils.StrUntils;
@@ -17,9 +20,11 @@ public class TextActivity extends AppCompatActivity {
 
     @BindView(R.id.lixt_looper_banner)
     ListLoopBanner lixtLooperBanner;
+    @BindView(R.id.left_recycler)
+    RecyclerView leftRecycler;
 
+    private LeftMiddleAdapter mLeftMiddleAdapter;
     private ArrayList<MiddelsItem> mLeftMiddelsItems;
-
 
 
     public static void startTextActivity(Activity activity) {
@@ -28,7 +33,6 @@ public class TextActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         activity.startActivity(intent);
     }
-
 
 
     @Override
@@ -40,7 +44,14 @@ public class TextActivity extends AppCompatActivity {
         mLeftMiddelsItems = new ArrayList<>();
         initDatas();
 
-        lixtLooperBanner.initDatas(mLeftMiddelsItems);
+
+        mLeftMiddleAdapter = new LeftMiddleAdapter(this, mLeftMiddelsItems, R.layout.left_middel_layout);
+        final LinearLayoutManager leftllm = new LinearLayoutManager(this);
+        leftllm.setOrientation(LinearLayoutManager.VERTICAL);
+        leftRecycler.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        leftRecycler.setLayoutManager(leftllm);
+        leftRecycler.setAdapter(mLeftMiddleAdapter);
+
 
     }
 
@@ -55,9 +66,6 @@ public class TextActivity extends AppCompatActivity {
             mLeftMiddelsItems.add(middelsItem);
         }
     }
-
-
-
 
 
 }

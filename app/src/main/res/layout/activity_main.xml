@@ -86,6 +86,21 @@
             android:text="向中间双向滑动 RecyckerView"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/iamge_view_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="图片放大效果"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:id="@+id/face_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点赞链接"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 
