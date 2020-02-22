@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.water_mark_btn)
     Button waterMarkBtn;
     @BindView(R.id.recycler_view_deletel)
-    Button recyclerViewDeletel;
+    Button recyclerViewDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
