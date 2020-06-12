@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        RecyclerMiddleActivity.startRecyclerMiddleActivity(MainActivity.this);
+//        RecyclerMiddleActivity.startRecyclerMiddleActivity(MainActivity.this);
     }
 
 
