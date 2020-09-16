@@ -4,19 +4,15 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.json.itemdecoration.R;
-import com.json.itemdecoration.looper.banner.ScaleGallerTransformer;
 import com.json.itemdecoration.untils.DensityUtil;
 
 import java.util.ArrayList;

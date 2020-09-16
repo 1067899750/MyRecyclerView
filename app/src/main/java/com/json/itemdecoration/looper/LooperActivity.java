@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.json.itemdecoration.MainActivity;
 import com.json.itemdecoration.R;
-import com.json.itemdecoration.looper.banner.GallerAdapter;
-import com.json.itemdecoration.looper.banner.GallerViewPager;
-import com.json.itemdecoration.looper.banner.ScaleGallerTransformer;
+import com.json.itemdecoration.looper.banner.GalleryAdapter;
+import com.json.itemdecoration.looper.banner.GalleryViewPager;
 import com.json.itemdecoration.looper.banner.a.RoundedImageView;
 
 /**
@@ -21,7 +19,7 @@ import com.json.itemdecoration.looper.banner.a.RoundedImageView;
  */
 public class LooperActivity extends AppCompatActivity {
     private BaseBannerLoopView mBaseBannerView;
-    private GallerViewPager mGallerViewPager;
+    private GalleryViewPager mGallerViewPager;
     private int[] mBannerArr = {
             R.mipmap.pag1,
             R.mipmap.pag2,
@@ -53,10 +51,10 @@ public class LooperActivity extends AppCompatActivity {
     }
 
 
-    class Adapter extends GallerAdapter {
+    class Adapter extends GalleryAdapter {
 
         @Override
-        public int getGallerSize() {
+        public int getGallerySize() {
             return mBannerArr.length;
         }
 

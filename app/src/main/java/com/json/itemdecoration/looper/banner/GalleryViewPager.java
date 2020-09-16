@@ -24,68 +24,73 @@ import java.util.TimerTask;
  * @description
  * @date 2020/9/16 21:27
  */
-public class GallerViewPager extends LinearLayout {
-    private Context context;
-    private ViewPager viewPager;
+public class GalleryViewPager extends LinearLayout {
+    private Context mContext;
+    private ViewPager mViewPager;
+    private LinearLayout mGalleryDots;
 
-    public GallerViewPager(Context context) {
+    public GalleryViewPager(Context context) {
         super(context);
-        this.context = context;
+        this.mContext = context;
         init();
     }
 
-    public GallerViewPager(Context context, AttributeSet attrs) {
+    public GalleryViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
+        this.mContext = context;
         init();
     }
 
     private void init() {
-        LayoutInflater.from(context).inflate(R.layout.gallery, this);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setPageMargin(DensityUtil.dp2px(15));
-        viewPager.setOffscreenPageLimit(3);
-//
-        viewPager.setOnTouchListener(new OnTouchListener() {
+        LayoutInflater.from(mContext).inflate(R.layout.gallery, this);
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mViewPager.setPageMargin(DensityUtil.dp2px(15));
+        mViewPager.setOffscreenPageLimit(3);
+
+        mViewPager.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 int action = event.getAction();
                 switch (action) {
-                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_UP: {
                         recoverCycle();
                         break;
+                    }
                 }
                 return false;
             }
         });
+
+        mGalleryDots = findViewById(R.id.gallery_dots);
+
     }
 
 
     public void setPageMargin(int px) {
-        viewPager.setPageMargin(px);
+        mViewPager.setPageMargin(px);
     }
 
     public void setOffscreenPageLimit(int count) {
-        viewPager.setOffscreenPageLimit(count);
+        mViewPager.setOffscreenPageLimit(count);
     }
 
     public void setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer) {
-        viewPager.setPageTransformer(reverseDrawingOrder, transformer);
+        mViewPager.setPageTransformer(reverseDrawingOrder, transformer);
     }
 
     public void setViewPagerMargin(int px) {
-        MarginLayoutParams layoutParams = (MarginLayoutParams) viewPager.getLayoutParams();
+        MarginLayoutParams layoutParams = (MarginLayoutParams) mViewPager.getLayoutParams();
         layoutParams.setMargins(px, 0, px, 0);
-        viewPager.setLayoutParams(layoutParams);
+        mViewPager.setLayoutParams(layoutParams);
     }
 
     public void setCurrentItem(int position) {
-        viewPager.setCurrentItem(position);
+        mViewPager.setCurrentItem(position);
     }
 
     public void setAdapter(PagerAdapter adapter) {
-        viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(Integer.MAX_VALUE / 2);
+        mViewPager.setAdapter(adapter);
+        mViewPager.setCurrentItem(Integer.MAX_VALUE / 2);
     }
 
 
@@ -103,7 +108,7 @@ public class GallerViewPager extends LinearLayout {
      */
     private boolean mCycling;
 
-    private long mSliderDuration = 4000;
+    private long mSliderDuration = 3000;
 
     private boolean mAutoCycle;
     private boolean mAutoRecover = true;
@@ -241,8 +246,8 @@ public class GallerViewPager extends LinearLayout {
         try {
             Field mScroller = ViewPager.class.getDeclaredField("mScroller");
             mScroller.setAccessible(true);
-            FixedSpeedScroller scroller = new FixedSpeedScroller(viewPager.getContext(), interpolator, period);
-            mScroller.set(viewPager, scroller);
+            FixedSpeedScroller scroller = new FixedSpeedScroller(mViewPager.getContext(), interpolator, period);
+            mScroller.set(mViewPager, scroller);
         } catch (Exception e) {
 
         }
@@ -260,9 +265,9 @@ public class GallerViewPager extends LinearLayout {
         if (position >= getRealAdapter().getCount()) {
             throw new IllegalStateException("Item position is not exist");
         }
-        int p = viewPager.getCurrentItem() % getRealAdapter().getCount();
-        int n = (position - p) + viewPager.getCurrentItem();
-        viewPager.setCurrentItem(n, smooth);
+        int p = mViewPager.getCurrentItem() % getRealAdapter().getCount();
+        int n = (position - p) + mViewPager.getCurrentItem();
+        mViewPager.setCurrentItem(n, smooth);
     }
 
     public void setCurrentPosition(int position) {
@@ -278,7 +283,7 @@ public class GallerViewPager extends LinearLayout {
             throw new IllegalStateException("You did not set a slider adapter");
         }
 
-        viewPager.setCurrentItem(viewPager.getCurrentItem() - 1, smooth);
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1, smooth);
     }
 
     public void movePrevPosition() {
@@ -292,7 +297,7 @@ public class GallerViewPager extends LinearLayout {
         if (getRealAdapter() == null) {
             throw new IllegalStateException("You did not set a slider adapter");
         }
-        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, smooth);
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1, smooth);
     }
     public void moveNextPosition() {
         moveNextPosition(true);
@@ -300,7 +305,7 @@ public class GallerViewPager extends LinearLayout {
 
 
     private PagerAdapter getRealAdapter() {
-        PagerAdapter adapter = viewPager.getAdapter();
+        PagerAdapter adapter = mViewPager.getAdapter();
         return adapter;
     }
 }

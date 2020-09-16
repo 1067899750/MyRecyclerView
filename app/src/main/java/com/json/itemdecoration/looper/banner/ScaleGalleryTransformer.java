@@ -8,7 +8,7 @@ import android.view.View;
   *@author puyantao
   *@date 2020/9/16 21:28
   */
-public class ScaleGallerTransformer implements ViewPager.PageTransformer {
+public class ScaleGalleryTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.85f;
     private static final float MIN_ALPHA = 0.5f;
 
