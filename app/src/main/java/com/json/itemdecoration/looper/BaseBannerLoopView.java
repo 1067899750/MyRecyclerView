@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.json.itemdecoration.R;
+import com.json.itemdecoration.looper.banner.ScaleGallerTransformer;
 import com.json.itemdecoration.untils.DensityUtil;
 
 import java.util.ArrayList;
@@ -68,29 +69,15 @@ public class BaseBannerLoopView extends RelativeLayout {
         }
 
         mLoopViewPager.setClipChildren(false);
-        DisplayMetrics dm = getResources().getDisplayMetrics();
         //设置viewpage之间的间距
-        mLoopViewPager.setPageMargin(50);
+        mLoopViewPager.setPageMargin(DensityUtil.dp2px(15));
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mLoopViewPager.getLayoutParams();
         //高度根据图片进行适配（这里图片为750 *300）
         params.height = getResources().getDisplayMetrics().heightPixels;
         params.width = getResources().getDisplayMetrics().widthPixels;
         mLoopViewPager.setLayoutParams(params);
         mLoopViewPager.setAdapter(new MyAdapter(mImageList));
-        mLoopViewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
-            float scale = 0.85f;
-
-            @Override
-            public void transformPage(View page, float position) {
-                if (position >= 0 && position <= 1) {
-                    page.setScaleY(scale + (1 - scale) * (1 - position));
-                } else if (position > -1 && position < 0) {
-                    page.setScaleY(1 + (1 - scale) * position);
-                } else {
-                    page.setScaleY(scale);
-                }
-            }
-        });
+        mLoopViewPager.setPageTransformer(true, new ScaleBannerTransformer());
         mLoopViewPager.autoLoop(true);
         initCircle();
     }

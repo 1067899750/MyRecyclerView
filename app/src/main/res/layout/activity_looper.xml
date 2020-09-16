@@ -9,7 +9,17 @@
     <com.json.itemdecoration.looper.BaseBannerLoopView
         android:id="@+id/banner_loop_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"
+        android:visibility="gone" />
+
+
+    <com.json.itemdecoration.looper.banner.GallerViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#ffffff"
+        android:clipChildren="false"
+        android:visibility="visible"/>
 </LinearLayout>
 
 

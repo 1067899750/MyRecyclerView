@@ -108,7 +108,8 @@ public class LoopViewPager extends ViewPager {
                 @Override
                 public void startScroll(int startX, int startY, int dx, int dy, int duration) {
                     //控制滑动速度
-                    super.startScroll(startX, startY, dx, dy, (int) (1300 * (double) Math.abs(dx) / getWidth(getContext())));
+                    super.startScroll(startX, startY, dx, dy,
+                            (int) (1300 * (double) Math.abs(dx) / getWidth(getContext())));
                 }
             };
             scrollerField.set(this, scroller);
