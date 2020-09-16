@@ -26,25 +26,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-
-    @BindView(R.id.btn_explandle_list_view)
-    Button btnExplandleListView;
-    @BindView(R.id.btn_two_recycler)
-    Button btnTwoRecycler;
-    @BindView(R.id.btn_two_recycler2)
-    Button btnTwoRecycler2;
-    @BindView(R.id.water_mark_btn)
-    Button waterMarkBtn;
-    @BindView(R.id.recycler_view_deletel)
-    Button recyclerViewDeletel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        TextActivity.startTextActivity(MainActivity.this);
-
+//        RecyclerMiddleActivity.startRecyclerMiddleActivity(MainActivity.this);
     }
 
 
@@ -110,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.face_btn:
                 TextSpanActivity.startTextSpanActivity(MainActivity.this);
                 break;
-
         }
     }
 
