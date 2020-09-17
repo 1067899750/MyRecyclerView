@@ -41,7 +41,7 @@ public class GalleryView extends RelativeLayout {
     }
 
     private void intiView() {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.gallery__view_layout, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.gallery_view_layout, null);
         addView(view);
 
         mGalleryViewPager = findViewById(R.id.gallery_view_pager);
