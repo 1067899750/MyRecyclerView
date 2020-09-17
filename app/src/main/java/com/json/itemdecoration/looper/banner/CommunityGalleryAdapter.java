@@ -31,12 +31,12 @@ public class CommunityGalleryAdapter extends GalleryAdapter {
 
     @Override
     public View getItemView(int position) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_image, null);
-        ImageView imageView = view.findViewById(R.id.image_view);
+        ImageView view = new ImageView(mContext);
         RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory
                 .create(mContext.getResources(), BitmapFactory.decodeResource(mContext.getResources(), mBannerArr[position - 1]));
         roundedBitmapDrawable.setCornerRadius(8);
-        imageView.setBackgroundResource(mBannerArr[position - 1]);
+        view.setScaleType(ImageView.ScaleType.FIT_XY);
+        view.setImageDrawable(roundedBitmapDrawable);
         return view;
     }
 }

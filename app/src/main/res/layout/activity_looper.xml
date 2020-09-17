@@ -9,18 +9,20 @@
     <com.json.itemdecoration.looper.BaseBannerLoopView
         android:id="@+id/banner_loop_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="@dimen/d20"
+        android:clipChildren="false"
         android:visibility="gone" />
 
 
-        <com.json.itemdecoration.looper.banner.GalleryView
-            android:id="@+id/gallery_view"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginTop="@dimen/d20"
-            android:background="#ffffff"
-            android:clipChildren="false"
-            android:visibility="visible" />
+    <com.json.itemdecoration.looper.banner.GalleryView
+        android:id="@+id/gallery_view"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="@dimen/d20"
+        android:background="#ffffff"
+        android:clipChildren="false"
+        android:visibility="visible" />
 
 
 </LinearLayout>
