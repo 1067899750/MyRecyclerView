@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.json.itemdecoration.R;
 import com.json.itemdecoration.looper.banner.CommunityGalleryAdapter;
+import com.json.itemdecoration.looper.banner.GalleryView;
 import com.json.itemdecoration.looper.banner.GalleryViewPager;
 import com.json.itemdecoration.untils.DensityUtil;
 
@@ -23,13 +24,14 @@ import java.util.List;
  */
 public class LooperActivity extends AppCompatActivity {
     private BaseBannerLoopView mBaseBannerView;
-    private GalleryViewPager mGalleryViewPager;
+    private GalleryView mGalleryView;
+
     private int[] mBannerArr = {
             R.mipmap.pag1,
             R.mipmap.pag2,
+            R.mipmap.pag3,
+            R.mipmap.pag4,
     };
-    private LinearLayout mGalleryDotsLl;
-    private List<TextView> txtPoints;
 
 
     public static void startLooperActivity(Activity activity) {
@@ -46,74 +48,15 @@ public class LooperActivity extends AppCompatActivity {
         mBaseBannerView = findViewById(R.id.banner_loop_view);
         mBaseBannerView.initViewPager(mBannerArr);
 
-        mGalleryViewPager = findViewById(R.id.gallery_view_pager);
-        mGalleryDotsLl = findViewById(R.id.gallery_dots_ll);
-        initCircle();
-        CommunityGalleryAdapter communityGalleryAdapter = new CommunityGalleryAdapter(this, mBannerArr);
-        mGalleryViewPager.setAdapter(communityGalleryAdapter);
-        mGalleryViewPager.setPageTransformer(true, new ScaleBannerTransformer());
-        mGalleryViewPager.setDuration(3000);
-        mGalleryViewPager.startAutoCycle();
-        mGalleryViewPager.setSliderTransformDuration(1500, null);
-        mGalleryViewPager.setOnClickChangerListener(new GalleryViewPager.OnClickChangerListener() {
-            @Override
-            public void onSelectionPosition(int position) {
-                changePoints((position - 1) % mBannerArr.length);
-            }
-        });
-
-    }
-
-
-    /**
-     * 初始化小圆点
-     */
-    public void initCircle() {
-        txtPoints = new ArrayList<>();
-        int d = DensityUtil.dp2px(6);
-        int m = 10;
-        for (int i = 0; i < mBannerArr.length; i++) {
-            TextView txt = new TextView(this);
-            LinearLayout.LayoutParams params;
-            if (i == 0) {
-                params = new LinearLayout.LayoutParams(d * 2, d );
-                txt.setBackgroundResource(R.drawable.home_yuan_sel);
-            } else {
-                params = new LinearLayout.LayoutParams(d, d);
-                txt.setBackgroundResource(R.drawable.home_yuan);
-            }
-            params.setMargins(m, m, m, m);
-            txt.setLayoutParams(params);
-            txtPoints.add(txt);
-            mGalleryDotsLl.addView(txt);
-        }
-    }
-
-
-    private void changePoints(int pos) {
-        int d = DensityUtil.dp2px(6);
-        int m = 10;
-        if (txtPoints != null) {
-            for (int i = 0; i < txtPoints.size(); i++) {
-                LinearLayout.LayoutParams params;
-                if (pos == i) {
-                    params = new LinearLayout.LayoutParams(d * 2, d );
-                    txtPoints.get(i).setBackgroundResource(R.drawable.home_yuan_sel);
-                } else {
-                    params = new LinearLayout.LayoutParams(d, d);
-                    txtPoints.get(i).setBackgroundResource(R.drawable.home_yuan);
-                }
-                params.setMargins(m, m, m, m);
-                txtPoints.get(i).setLayoutParams(params);
-            }
-        }
+        mGalleryView = findViewById(R.id.gallery_view);
+        mGalleryView.initData(mBannerArr);
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mGalleryViewPager.stopAutoCycle();
+        mGalleryView.onDestroy();
     }
 }
 
