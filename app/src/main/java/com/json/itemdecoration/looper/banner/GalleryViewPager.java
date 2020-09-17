@@ -11,13 +11,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.json.itemdecoration.R;
 import com.json.itemdecoration.untils.DensityUtil;
 
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,7 +44,7 @@ public class GalleryViewPager extends LinearLayout {
     private void init() {
         LayoutInflater.from(mContext).inflate(R.layout.gallery, this);
         mViewPager = findViewById(R.id.gallery_vp);
-        mViewPager.setPageMargin(DensityUtil.dp2px(15));
+        mViewPager.setPageMargin(DensityUtil.dp2px(10));
         mViewPager.setOffscreenPageLimit(3);
 
         mViewPager.setOnTouchListener(new OnTouchListener() {
@@ -71,7 +69,7 @@ public class GalleryViewPager extends LinearLayout {
 
             @Override
             public void onPageSelected(int position) {
-                if (null != mOnClickChangerListener){
+                if (null != mOnClickChangerListener) {
                     mOnClickChangerListener.onSelectionPosition(position);
                 }
             }
@@ -328,11 +326,11 @@ public class GalleryViewPager extends LinearLayout {
         return adapter;
     }
 
-    public void setOnClickChangerListener(OnClickChangerListener listener){
+    public void setOnClickChangerListener(OnClickChangerListener listener) {
         this.mOnClickChangerListener = listener;
     }
 
-    public interface OnClickChangerListener{
+    public interface OnClickChangerListener {
         void onSelectionPosition(int position);
     }
 }
