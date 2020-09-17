@@ -66,7 +66,7 @@ public class BaseBannerLoopView extends RelativeLayout {
 
         mLoopViewPager.setClipChildren(false);
         //设置viewpage之间的间距
-        mLoopViewPager.setPageMargin(-DensityUtil.dp2px(15));
+        mLoopViewPager.setPageMargin(DensityUtil.dp2px(15));
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mLoopViewPager.getLayoutParams();
         //高度根据图片进行适配（这里图片为750 *300）
         params.height = getResources().getDisplayMetrics().heightPixels;
