@@ -42,8 +42,9 @@ public class GalleryViewPager extends LinearLayout {
     }
 
     private void init() {
-        LayoutInflater.from(mContext).inflate(R.layout.gallery, this);
-        mViewPager = findViewById(R.id.gallery_vp);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.gallery, null);
+        addView(view);
+        mViewPager = view.findViewById(R.id.gallery_vp);
         mViewPager.setPageMargin(DensityUtil.dp2px(10));
         mViewPager.setOffscreenPageLimit(3);
 
