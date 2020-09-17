@@ -11,11 +11,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.json.itemdecoration.R;
 import com.json.itemdecoration.untils.DensityUtil;
 
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,7 +29,7 @@ import java.util.TimerTask;
 public class GalleryViewPager extends LinearLayout {
     private Context mContext;
     private ViewPager mViewPager;
-    private LinearLayout mGalleryDots;
+    private OnClickChangerListener mOnClickChangerListener;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -43,7 +45,7 @@ public class GalleryViewPager extends LinearLayout {
 
     private void init() {
         LayoutInflater.from(mContext).inflate(R.layout.gallery, this);
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mViewPager = findViewById(R.id.gallery_vp);
         mViewPager.setPageMargin(DensityUtil.dp2px(15));
         mViewPager.setOffscreenPageLimit(3);
 
@@ -61,8 +63,24 @@ public class GalleryViewPager extends LinearLayout {
             }
         });
 
-        mGalleryDots = findViewById(R.id.gallery_dots);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (null != mOnClickChangerListener){
+                    mOnClickChangerListener.onSelectionPosition(position);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
 
@@ -90,7 +108,7 @@ public class GalleryViewPager extends LinearLayout {
 
     public void setAdapter(PagerAdapter adapter) {
         mViewPager.setAdapter(adapter);
-        mViewPager.setCurrentItem(Integer.MAX_VALUE / 2);
+        mViewPager.setCurrentItem(1);
     }
 
 
@@ -299,6 +317,7 @@ public class GalleryViewPager extends LinearLayout {
         }
         mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1, smooth);
     }
+
     public void moveNextPosition() {
         moveNextPosition(true);
     }
@@ -307,5 +326,13 @@ public class GalleryViewPager extends LinearLayout {
     private PagerAdapter getRealAdapter() {
         PagerAdapter adapter = mViewPager.getAdapter();
         return adapter;
+    }
+
+    public void setOnClickChangerListener(OnClickChangerListener listener){
+        this.mOnClickChangerListener = listener;
+    }
+
+    public interface OnClickChangerListener{
+        void onSelectionPosition(int position);
     }
 }

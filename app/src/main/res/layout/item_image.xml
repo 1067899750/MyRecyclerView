@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:layout_gravity="center">
 
-    <com.json.itemdecoration.looper.banner.a.RoundedImageView
+    <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@mipmap/color_choose" />
+        android:scaleType="fitXY" />
 </LinearLayout>

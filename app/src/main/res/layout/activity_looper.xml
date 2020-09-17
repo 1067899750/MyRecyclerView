@@ -12,14 +12,30 @@
         android:layout_height="200dp"
         android:visibility="gone" />
 
-
-    <com.json.itemdecoration.looper.banner.GalleryViewPager
-        android:id="@+id/view_pager"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#ffffff"
-        android:clipChildren="false"
-        android:visibility="visible"/>
+        android:layout_height="120dp">
+
+        <com.json.itemdecoration.looper.banner.GalleryViewPager
+            android:id="@+id/gallery_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/d20"
+            android:background="#ffffff"
+            android:clipChildren="false"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/gallery_dots_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+
 </LinearLayout>
 
 

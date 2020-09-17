@@ -5,21 +5,11 @@
     android:clipChildren="false">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/gallery_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:clipChildren="false" />
 
-
-    <LinearLayout
-        android:id="@+id/gallery_dots"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:orientation="horizontal" />
 </RelativeLayout>
