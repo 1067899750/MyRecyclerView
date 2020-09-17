@@ -104,9 +104,9 @@ public class GalleryViewPager extends LinearLayout {
         mViewPager.setCurrentItem(position);
     }
 
-    public void setAdapter(PagerAdapter adapter) {
+    public void setAdapter(PagerAdapter adapter, int position) {
         mViewPager.setAdapter(adapter);
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(position * 1000 + 1);
     }
 
 

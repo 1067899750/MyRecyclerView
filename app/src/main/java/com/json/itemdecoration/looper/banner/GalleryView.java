@@ -53,8 +53,10 @@ public class GalleryView extends RelativeLayout {
      * 初始化数据
      */
     public void initData(final int[] data) {
+        //初始化圆点
+        txtPoints = new ArrayList<>();
         CommunityGalleryAdapter communityGalleryAdapter = new CommunityGalleryAdapter(mContext, data);
-        mGalleryViewPager.setAdapter(communityGalleryAdapter);
+        mGalleryViewPager.setAdapter(communityGalleryAdapter, data.length);
         mGalleryViewPager.setPageTransformer(true, new ScaleBannerTransformer());
         mGalleryViewPager.setDuration(3000);
         mGalleryViewPager.startAutoCycle();
@@ -62,29 +64,33 @@ public class GalleryView extends RelativeLayout {
         mGalleryViewPager.setOnClickChangerListener(new GalleryViewPager.OnClickChangerListener() {
             @Override
             public void onSelectionPosition(int position) {
-                changePoints((position - 1) % data.length);
+                if (data.length > 1) {
+                    changePoints((position - 1) % data.length);
+                }
             }
         });
 
-
-        //初始化圆点
-        txtPoints = new ArrayList<>();
-        int d = DensityUtil.dp2px(6);
-        int m = 10;
-        for (int i = 0; i < data.length; i++) {
-            TextView txt = new TextView(mContext);
-            LinearLayout.LayoutParams params;
-            if (i == 0) {
-                params = new LinearLayout.LayoutParams(d * 2, d);
-                txt.setBackgroundResource(R.drawable.home_yuan_sel);
-            } else {
-                params = new LinearLayout.LayoutParams(d, d);
-                txt.setBackgroundResource(R.drawable.home_yuan);
+        if (data.length > 1) {
+            mGalleryDotsLl.setVisibility(VISIBLE);
+            int d = DensityUtil.dp2px(6);
+            int m = 10;
+            for (int i = 0; i < data.length; i++) {
+                TextView txt = new TextView(mContext);
+                LinearLayout.LayoutParams params;
+                if (i == 0) {
+                    params = new LinearLayout.LayoutParams(d * 2, d);
+                    txt.setBackgroundResource(R.drawable.home_yuan_sel);
+                } else {
+                    params = new LinearLayout.LayoutParams(d, d);
+                    txt.setBackgroundResource(R.drawable.home_yuan);
+                }
+                params.setMargins(m, m, m, m);
+                txt.setLayoutParams(params);
+                txtPoints.add(txt);
+                mGalleryDotsLl.addView(txt);
             }
-            params.setMargins(m, m, m, m);
-            txt.setLayoutParams(params);
-            txtPoints.add(txt);
-            mGalleryDotsLl.addView(txt);
+        } else {
+            mGalleryDotsLl.setVisibility(GONE);
         }
     }
 
