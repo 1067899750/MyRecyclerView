@@ -71,6 +71,7 @@ public class GalleryView extends RelativeLayout {
         });
 
         if (data.length > 1) {
+            mGalleryDotsLl.removeAllViews();
             mGalleryDotsLl.setVisibility(VISIBLE);
             int d = DensityUtil.dp2px(6);
             int m = 10;

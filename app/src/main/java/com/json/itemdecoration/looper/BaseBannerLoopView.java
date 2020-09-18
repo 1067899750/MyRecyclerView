@@ -83,6 +83,7 @@ public class BaseBannerLoopView extends RelativeLayout {
      * 初始化小圆点
      */
     private void initCircle() {
+        mLayoutDots.removeAllViews();
         List mTxtPoints = new ArrayList<>();
         int d = DensityUtil.dp2px(6);
         int m = 10;
