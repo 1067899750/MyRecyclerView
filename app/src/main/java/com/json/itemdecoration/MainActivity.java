@@ -20,6 +20,7 @@ import com.json.itemdecoration.text.TextSpanActivity;
 import com.json.itemdecoration.tworecycler.TwoRecyActivity;
 import com.json.itemdecoration.water.WaterMarkActivity;
 import com.json.itemdecoration.wave.WaveProgressActivity;
+import com.json.itemdecoration.wx.WXActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        RecyclerMiddleActivity.startRecyclerMiddleActivity(MainActivity.this);
+        WXActivity.startWxActivity(this);
     }
 
 
@@ -46,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.looper_btn,
             R.id.middle_rv_btn,
             R.id.iamge_view_btn,
-            R.id.face_btn})
+            R.id.face_btn,
+            R.id.wx_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_explandle_list_view:
@@ -87,15 +89,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.middle_rv_btn:
-                RecyclerMiddleActivity.startRecyclerMiddleActivity(MainActivity.this);
+                RecyclerMiddleActivity.startRecyclerMiddleActivity(this);
 //                TextSpanActivity.startTextActivity(this);
                 break;
 
             case R.id.iamge_view_btn:
-                ImageViewActivity.startImageViewActivity(MainActivity.this);
+                ImageViewActivity.startImageViewActivity(this);
                 break;
             case R.id.face_btn:
-                TextSpanActivity.startTextSpanActivity(MainActivity.this);
+                TextSpanActivity.startTextSpanActivity(this);
+                break;
+            case R.id.wx_btn:
+                WXActivity.startWxActivity(this);
                 break;
         }
     }

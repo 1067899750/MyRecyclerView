@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".wx.WXActivity">
+
+
+    <ListView
+        android:id="@+id/list_View"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.json.itemdecoration.wx.SideBar
+        android:id="@+id/side_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/d50"
+        android:layout_marginBottom="@dimen/d50"
+        android:paddingRight="10dp"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:selectColor="#FFEA0A0A" />
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+

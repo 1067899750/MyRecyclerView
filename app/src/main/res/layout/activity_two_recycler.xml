@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/d10"
             android:layout_weight="3"
-            android:background="@color/white_back"></FrameLayout>
+            android:background="@color/white_back"/>
     </LinearLayout>
 
 </LinearLayout>
