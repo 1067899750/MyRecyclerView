@@ -1,4 +1,4 @@
-package com.json.itemdecoration.wx;
+package com.json.itemdecoration.wx.utils;
 
 /**
  * 

@@ -1,4 +1,6 @@
-package com.json.itemdecoration.wx;
+package com.json.itemdecoration.wx.utils;
+
+import com.json.itemdecoration.wx.utils.Cn2Spell;
 
 /**
  * @author puyantao

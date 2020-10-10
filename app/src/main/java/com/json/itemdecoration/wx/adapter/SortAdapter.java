@@ -1,4 +1,4 @@
-package com.json.itemdecoration.wx;
+package com.json.itemdecoration.wx.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.json.itemdecoration.R;
+import com.json.itemdecoration.wx.bean.User;
 
 import java.util.List;
 

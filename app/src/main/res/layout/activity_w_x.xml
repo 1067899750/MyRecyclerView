@@ -7,13 +7,13 @@
     tools:context=".wx.WXActivity">
 
 
-    <ListView
-        android:id="@+id/list_View"
+    <FrameLayout
+        android:id="@+id/lin_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
 
-    <com.json.itemdecoration.wx.SideBar
+    <com.json.itemdecoration.wx.utils.SideBar
         android:id="@+id/side_bar"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
