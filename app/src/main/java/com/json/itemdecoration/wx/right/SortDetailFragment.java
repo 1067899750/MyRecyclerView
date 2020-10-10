@@ -16,6 +16,7 @@ import com.json.itemdecoration.wx.right.bean.CategoryOneArrayBean;
 import com.json.itemdecoration.wx.right.bean.RightBean;
 import com.json.itemdecoration.wx.right.presenter.SortDetailPresenter;
 import com.json.itemdecoration.wx.right.untils.ItemHeaderDecoration;
+import com.json.itemdecoration.wx.right.untils.TopLinearSmoothScroller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,6 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
     private LinearLayoutManager mManager;
     private List<RightBean> mDatas = new ArrayList<>();
     private ItemHeaderDecoration mDecoration;
-    private boolean move = false;
     private int mIndex = 0;
     private CheckListener checkListener;
 
@@ -44,21 +44,21 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
 
     @Override
     protected void initListener() {
-        mRv.addOnScrollListener(new RecyclerViewListener());
     }
 
     @Override
     protected SortDetailPresenter initPresenter() {
         showRightPage(1);
-        mManager = new LinearLayoutManager(mContext);
+        mManager = new LinearLayoutManager(mContext){
+            @Override
+            public void smoothScrollToPosition(RecyclerView view, RecyclerView.State state, int position) {
+                TopLinearSmoothScroller smoothScroller = new TopLinearSmoothScroller(view.getContext());
+                smoothScroller.setTargetPosition(position);
+                startSmoothScroll(smoothScroller);
+            }
+        };
         mManager.setOrientation(LinearLayoutCompat.VERTICAL);
         //通过isTitle的标志来判断是否是title
-//        mManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//            @Override
-//            public int getSpanSize(int position) {
-//                return mDatas.get(position).isTitle() ? 3 : 1;
-//            }
-//        });
         mRv.setLayoutManager(mManager);
         mAdapter = new ClassifyDetailAdapter(mContext, mDatas, new RvListener() {
             @Override
@@ -142,21 +142,7 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
     }
 
     private void smoothMoveToPosition(int n) {
-        int firstItem = mManager.findFirstVisibleItemPosition();
-        int lastItem = mManager.findLastVisibleItemPosition();
-        Log.d("first--->", String.valueOf(firstItem));
-        Log.d("last--->", String.valueOf(lastItem));
-        if (n <= firstItem) {
-            mRv.scrollToPosition(n);
-        } else if (n <= lastItem) {
-            Log.d("pos---->", String.valueOf(n) + "VS" + firstItem);
-            int top = mRv.getChildAt(n - firstItem).getTop();
-            Log.d("top---->", String.valueOf(top));
-            mRv.scrollBy(0, top);
-        } else {
-            mRv.scrollToPosition(n);
-            move = true;
-        }
+        mRv.smoothScrollToPosition(n);
     }
 
 
@@ -164,37 +150,6 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
     public void check(int position, boolean isScroll) {
         checkListener.check(position, isScroll);
 
-    }
-
-
-    private class RecyclerViewListener extends RecyclerView.OnScrollListener {
-        @Override
-        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-            super.onScrollStateChanged(recyclerView, newState);
-            if (move && newState == RecyclerView.SCROLL_STATE_IDLE) {
-                move = false;
-                int n = mIndex - mManager.findFirstVisibleItemPosition();
-                Log.d("n---->", String.valueOf(n));
-                if (0 <= n && n < mRv.getChildCount()) {
-                    int top = mRv.getChildAt(n).getTop();
-                    Log.d("top--->", String.valueOf(top));
-                    mRv.smoothScrollBy(0, top);
-                }
-            }
-        }
-
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            super.onScrolled(recyclerView, dx, dy);
-            if (move) {
-                move = false;
-                int n = mIndex - mManager.findFirstVisibleItemPosition();
-                if (0 <= n && n < mRv.getChildCount()) {
-                    int top = mRv.getChildAt(n).getTop();
-                    mRv.scrollBy(0, top);
-                }
-            }
-        }
     }
 
 
