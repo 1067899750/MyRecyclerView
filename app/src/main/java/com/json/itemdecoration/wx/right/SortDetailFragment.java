@@ -2,7 +2,6 @@ package com.json.itemdecoration.wx.right;
 
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +14,6 @@ import com.json.itemdecoration.relateview.listener.CheckListener;
 import com.json.itemdecoration.relateview.listener.RvListener;
 import com.json.itemdecoration.wx.right.bean.CategoryOneArrayBean;
 import com.json.itemdecoration.wx.right.bean.RightBean;
-import com.json.itemdecoration.wx.right.bean.SortBean;
 import com.json.itemdecoration.wx.right.presenter.SortDetailPresenter;
 import com.json.itemdecoration.wx.right.untils.ItemHeaderDecoration;
 
