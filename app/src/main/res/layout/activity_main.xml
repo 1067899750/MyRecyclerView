@@ -108,7 +108,12 @@
             android:text="模仿微信索引"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/flow_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="流式布局"
+            android:textAllCaps="false" />
     </LinearLayout>
-
 
 </android.support.v4.widget.NestedScrollView>

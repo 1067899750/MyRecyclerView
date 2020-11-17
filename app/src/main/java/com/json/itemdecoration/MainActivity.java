@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.json.itemdecoration.expandableview.ExpandableListViewActivity;
+import com.json.itemdecoration.flow.FlowActivity;
 import com.json.itemdecoration.image.ImageViewActivity;
 import com.json.itemdecoration.looper.LooperActivity;
 import com.json.itemdecoration.middle.RecyclerMiddleActivity;
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.middle_rv_btn,
             R.id.iamge_view_btn,
             R.id.face_btn,
-            R.id.wx_btn})
+            R.id.wx_btn,
+            R.id.flow_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_explandle_list_view:
@@ -101,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.wx_btn:
                 WXActivity.startWxActivity(this);
+                break;
+            case R.id.flow_btn:
+                FlowActivity.startActivity(this);
                 break;
         }
     }
