@@ -92,7 +92,7 @@ public class FlowLayout extends ViewGroup {
             int measuredHeight = child.getMeasuredHeight();
             //获取元素的margin
             marginParams = (MarginLayoutParams) child.getLayoutParams();
-            //子元素所占宽度 = MarginLeft+ child.getMeasuredWidth+MarginRight  注意此时不能child.getWidth,因为界面没有绘制完成，此时wdith为0
+            //子元素所占宽度 = MarginLeft+ child.getMeasuredWidth+MarginRight  注意此时不能child.getWidth,因为界面没有绘制完成，此时width为0
             int childWidth = marginParams.leftMargin + marginParams.rightMargin + measuredWidth;
             int childHeight = marginParams.topMargin + marginParams.bottomMargin + measuredHeight;
             //判断是否换行： 该行已占大小+该元素大小>父容器宽度  则换行
