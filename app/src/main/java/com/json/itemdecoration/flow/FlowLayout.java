@@ -37,17 +37,17 @@ public class FlowLayout extends ViewGroup {
         int measuredWidth = 0, measuredHeight = 0;
 
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int widtMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         //由于计算子view所占宽度，这里传值需要自身减去PaddingRight宽度，PaddingLeft会在接下来计算子元素位置时加上
         Map<String, Integer> compute = compute(widthSize - getPaddingRight());
 
         //EXACTLY模式：对应于给定大小或者match_parent情况
-        if (widtMode == MeasureSpec.EXACTLY) {
+        if (widthMode == MeasureSpec.EXACTLY) {
             measuredWidth = widthSize;
             //AT_MOS模式：对应wrap-content（需要手动计算大小，否则相当于match_parent）
-        } else if (widtMode == MeasureSpec.AT_MOST) {
+        } else if (widthMode == MeasureSpec.AT_MOST) {
             measuredWidth = compute.get("allChildWidth");
         }
 
@@ -74,7 +74,7 @@ public class FlowLayout extends ViewGroup {
      * 测量过程
      *
      * @param flowWidth 该view的宽度
-     * @return 返回子元素总所占宽度和高度（用于计算Flowlayout的AT_MOST模式设置宽高）
+     * @return 返回子元素总所占宽度和高度（用于计算FlowLayout的AT_MOST模式设置宽高）
      */
     private Map<String, Integer> compute(int flowWidth) {
         //是否是单行
