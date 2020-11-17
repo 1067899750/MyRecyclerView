@@ -3,11 +3,14 @@ package com.json.itemdecoration.wx.utils;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import com.json.itemdecoration.R;
+
+import java.util.ArrayList;
 
 /**
  * @author puyantao
@@ -18,6 +21,8 @@ public class SideBar extends android.support.v7.widget.AppCompatTextView {
     private String[] letters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
             "W", "X", "Y", "Z", "#"};
+
+    private ArrayList<String> haveLetters = new ArrayList<>();
     private Paint textPaint;
     private Paint bigTextPaint;
 
@@ -156,30 +161,35 @@ public class SideBar extends android.support.v7.widget.AppCompatTextView {
             int x = (int) (getMeasuredWidth() - sideX);
 
             //动画效果
-//            if (Math.abs(i - index) > singleSideCount) {
-//                x = (int) (getMeasuredWidth() - sideX);
-//            } else {
-//                float percent = eventY / itemH;
-//                int t = (int) (i * itemH - eventY);
-//                double v = A * Math.sin(w * t + Math.PI / 2);
-//
-//                //如果算出来小于字体宽度 就取字体宽度
-//                v = Math.max(v, sideX);
-//                x = (int) (getMeasuredWidth() - v);
-//                //根据delta缩放字体
-//                if (v == sideX) {
-//                    textPaint.setTextSize(getTextSize());
-//                } else {
-//                    float delta = (Math.abs((i - percent)) / singleSideCount);
-//                    float textSize = getTextSize() + (1 - delta) * getTextSize() * fontScale;
-//                    textPaint.setTextSize(textSize);
-//                }
-//            }
+            if (Math.abs(i - index) > singleSideCount) {
+                x = (int) (getMeasuredWidth() - sideX);
+            } else {
+                float percent = eventY / itemH;
+                int t = (int) (i * itemH - eventY);
+                double v = A * Math.sin(w * t + Math.PI / 2);
+
+                //如果算出来小于字体宽度 就取字体宽度
+                v = Math.max(v, sideX);
+                x = (int) (getMeasuredWidth() - v);
+                //根据delta缩放字体
+                if (v == sideX) {
+                    textPaint.setTextSize(getTextSize());
+                } else {
+                    float delta = (Math.abs((i - percent)) / singleSideCount);
+                    float textSize = getTextSize() + (1 - delta) * getTextSize() * fontScale;
+                    textPaint.setTextSize(textSize);
+                }
+            }
+
 
             if (index == i) {
                 textPaint.setColor(selectColor);
             } else {
-                textPaint.setColor(getCurrentTextColor());
+                if (haveLetters.contains(letters[i])) {
+                    textPaint.setColor(Color.parseColor("#7A7881"));
+                } else {
+                    textPaint.setColor(Color.parseColor("#B4BAC0"));
+                }
             }
             canvas.drawText(letters[i], x, y, textPaint);
         }
@@ -243,6 +253,16 @@ public class SideBar extends android.support.v7.widget.AppCompatTextView {
         this.openCount = openCount;
 //        invalidate();
         return this;
+    }
+
+    /**
+     * 设置索引中是否由内容
+     * @param data
+     */
+    public void setHaveLetters(ArrayList<String> data){
+        haveLetters.clear();
+        haveLetters.addAll(data);
+        invalidate();
     }
 
     private void caculateAW(int height) {

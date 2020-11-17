@@ -121,6 +121,11 @@ public class WXActivity extends AppCompatActivity implements CheckListener {
             }
         }
 
+        ArrayList<String> sileData = new ArrayList<>();
+        for (int i = 0; i < mCategoryOneArrayBeans.size(); i++) {
+            sileData.add(mCategoryOneArrayBeans.get(i).getName());
+        }
+        mSideBar.setHaveLetters(sileData);
         createFragment();
     }
 
